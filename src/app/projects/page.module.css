@@ -1,5 +1,3 @@
-/* ProjectPage.module.css */
-
 .projectCard {
   position: relative;
   overflow: hidden;
@@ -10,7 +8,7 @@
 .projectImage {
   border-radius: 0.5rem; /* Rounded corners */
   width: 100%;
-  height: 12rem; /* Adjust height */
+  height: 200px; /* Adjust height */
   object-fit: cover; /* Ensure image covers the area */
   transition: transform 0.5s ease;
 }

@@ -6,18 +6,6 @@ import AnimatedContactDetails from '../contact/AnimatedContactDetails'; // Assum
 import { contactDetails } from '../../data/contact'; // Assuming correct path to contactDetails
 import { FlipWords } from "../../components/ui/Animated-Flip-Words"; // Import FlipWords component
 
-// Define the structure of contactDetails using TypeScript interfaces
-interface ContactDetails {
-  phone: string;
-  email: string;
-  address: string;
-  socialLinks: {
-    name: string;
-    url: string;
-    icon: string; // Adjusted to expect string for icon name
-  }[];
-}
-
 const ContactPage: React.FC = () => {
   const words = ["Touch", "Contact"];
 
@@ -39,27 +27,27 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="w-full max-w-md bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg mb-8 md:mb-0 md:mr-8"
         >
-          <div className="flex items-center justify-center mb-8">
+          <div className="flex flex-col items-center mb-8">
             <img
               src="/profile/profile.png"
               alt="Profile"
-              className="w-24 h-24 rounded-full mr-4"
+              className="w-24 h-24 rounded-full mb-4"
             />
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-8"
+              className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center"
             >
               Get in
-              <div className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-600 dark:text-gray-300">
+              <div className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-600 dark:text-gray-300">
                 <FlipWords words={words} />
               </div>
             </motion.h1>
           </div>
 
-          <form>
-            <div className="mb-4">
+          <form className="space-y-4">
+            <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="name"
@@ -77,7 +65,7 @@ const ContactPage: React.FC = () => {
               />
             </div>
 
-            <div className="mb-4">
+            <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="email"
@@ -95,7 +83,7 @@ const ContactPage: React.FC = () => {
               />
             </div>
 
-            <div className="mb-6">
+            <div>
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="message"
@@ -112,12 +100,12 @@ const ContactPage: React.FC = () => {
               />
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex justify-end">
               <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 2.5 }}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-gradient-to-r from-red-500 to-black via-pink-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 Send

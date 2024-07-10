@@ -1,17 +1,41 @@
-/* page.module.css */
-
-/* Main Blogs Section */
-.blogsSection {
+/* Main Section */
+.main {
   animation: fadeInUp 0.5s ease-out;
 }
 
-.blogGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-to-r {
+  background: linear-gradient(270deg, #ff0000, #ff0066, #ff33cc, #ff00ff, #6600ff, #0000ff, #000066);
+  background-size: 1400% 1400%;
+  animation: gradient-x 15s ease infinite;
+}
+
+/* Blog Section */
 .blogCard {
+  animation: fadeInUp 0.5s ease-out;
   position: relative;
   transition: transform 0.3s ease-out;
   border-radius: 0.25rem; /* Slightly rounded corners */
@@ -35,26 +59,9 @@
   opacity: 0.8; /* Reduce opacity on hover */
 }
 
-.readMore {
-  display: inline-block;
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text */
-  padding: 6px 12px;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.readMore:hover {
-  background-color: #333333; /* Darker background on hover */
-}
-
-/* Sidebar Section */
-.asideSection {
-  animation: slideInRight 0.5s ease-out;
-}
-
+/* Blog List Items */
 .blogListItem {
+  animation: slideInRight 0.5s ease-out;
   transition: transform 0.3s ease-out;
   display: flex;
   align-items: center;
@@ -64,7 +71,6 @@
   transform: translateX(5px);
 }
 
-/* Make images in sidebar fully rounded and smaller */
 .blogListItem img {
   transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transition for 3D effect and opacity */
   width: 64px; /* Reduced image size */
@@ -79,12 +85,24 @@
   opacity: 0.8; /* Reduce opacity on hover */
 }
 
-.blogListItem .text-base {
-  font-size: 0.875rem; /* Adjusted font size */
+.blogListItem .title {
+  font-size: 0.875rem; /* Adjusted font size for title */
+  font-weight: 600; /* Ensure the title is bold */
 }
 
-.blogListItem .text-xs {
-  font-size: 0.75rem; /* Adjusted font size */
+.blogListItem .description {
+  font-size: 0.75rem; /* Adjusted font size for description */
+  color: #555; /* Slightly darker color for description */
+}
+
+.blogListItem .author {
+  font-size: 0.75rem; /* Adjusted font size for author */
+  color: #888; /* Lighter color for author */
+}
+
+/* Arrow Button */
+.arrowButton {
+  animation: fadeInUp 0.5s ease-out;
 }
 
 /* Keyframes for Animations */

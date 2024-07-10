@@ -5,13 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button'; // Assuming Button component in Shadcn UI
 import { ContactRound, Download } from 'lucide-react';
-import HireMe from './HireMeButton';
+// import HireMe from './HireMeButton';
 import DynamicChange from './DynamicCountNumber';
 import { FlipWords } from "../ui/Animated-Flip-Words"; // Import FlipWords component
 import { motion } from 'framer-motion'; // Import motion from Framer Motion
 
+
 const HeroSection = () => {
   const words = ["Senior Data Scientist", "Web Developer", "Data Science & AI Trainer"];
+
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col-reverse sm:flex-row items-center justify-between gap-8">
@@ -37,12 +39,12 @@ const HeroSection = () => {
       <div className="w-full sm:w-1/2 text-center sm:text-left order-1 sm:order-2">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 relative overflow-hidden">
           <span className="text-white-500">Hi, I'm Ajesh Rana</span>
-          <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+          <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r  from-red-500 to-black via-pink-500 bg-clip-text text-transparent animate-gradient-x">
             Hi, I'm Ajesh Rana
           </span>
         </h1>
         <div className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-600 dark:text-gray-300">
-          <FlipWords words={words} />
+          <FlipWords words={words} className='gap-2' />
         </div>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
           I specialize in data science, creating innovative solutions that leverage data to drive business success. Explore my projects to see how I can help you achieve your goals.
@@ -66,7 +68,7 @@ const HeroSection = () => {
       </div>
 
       {/* HireMe component */}
-      <HireMe />
+      {/* <HireMe /> */}
     </section>
   );
 };

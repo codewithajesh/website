@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
         {/* Social media links below the copyright text */}
         <div className="flex items-center space-x-4 mb-4 sm:mb-0">
           <motion.a
-            href="https://www.instagram.com"
+            href="https://www.github.com"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -2 }}
             className="w-6 h-6 mx-1"
             whileTap={{ scale: 0.9 }}
           >
-            <InstagramIcon className="text-white" size={24} />
+            <GithubIcon className="text-white" size={24} />
           </motion.a>
           <motion.a
             href="https://www.linkedin.com"
@@ -41,16 +41,7 @@ const Footer: React.FC = () => {
           >
             <LinkedinIcon className="text-white" size={24} />
           </motion.a>
-          <motion.a
-            href="https://www.twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -2 }}
-            className="w-6 h-6 mx-1"
-            whileTap={{ scale: 0.9 }}
-          >
-            <TwitterIcon className="text-white" size={24} />
-          </motion.a>
+
           <motion.a
             href="https://www.facebook.com"
             target="_blank"
@@ -61,16 +52,31 @@ const Footer: React.FC = () => {
           >
             <FacebookIcon className="text-white" size={24} />
           </motion.a>
+
           <motion.a
-            href="https://www.github.com"
+            href="https://www.twitter.com"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -2 }}
             className="w-6 h-6 mx-1"
             whileTap={{ scale: 0.9 }}
           >
-            <GithubIcon className="text-white" size={24} />
+            <TwitterIcon className="text-white" size={24} />
           </motion.a>
+
+
+          <motion.a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -2 }}
+            className="w-6 h-6 mx-1"
+            whileTap={{ scale: 0.9 }}
+          >
+            <InstagramIcon className="text-white" size={24} />
+          </motion.a>
+
+
         </div>
       </div>
     </footer>

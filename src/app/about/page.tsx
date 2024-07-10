@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 import skills from "../../data/skill";
-// import { LinkPreview } from "../../components/ui/Animated-LinkPreview";
 
 const AboutMe: React.FC = () => {
   return (
@@ -29,8 +28,8 @@ const AboutMe: React.FC = () => {
               <Image
                 src="/profile/profile.png"
                 alt="Ajesh Kumar Rana"
-                width={600}
-                height={600}
+                width={300} // Adjusted width here
+                height={300} // Adjusted height here
                 className="rounded-full object-cover"
               />
             </div>
@@ -43,31 +42,20 @@ const AboutMe: React.FC = () => {
                 experience</strong> in transforming data into solutions, I
               specialize in building applications and deploying them effectively.
               Currently serving as the <strong>Senior Data Scientist</strong> at{" "}
-              <strong>
-                Incedo Technology Solutions Ltd
-              </strong>, I lead the team,
+              <strong>Incedo Technology Solutions Ltd</strong>, I lead the team,
               oversee project planning and execution.
             </p>
             <p className="text-lg mb-4">
               My robust background encompasses <strong>data analysis</strong>,{" "}
               <strong>data intelligence</strong>, and{" "}
               <strong>data-driven decision-making</strong> using a diverse
-              toolset, including <strong>Python
-              </strong><strong>Power BI</strong><strong>Pandas
-              </strong> <strong>Seaborn</strong>
-              <strong>Scikit-learn</strong>, <strong>NLTK</strong>,{" "}
-              <strong>Keras</strong>, <strong>
-                SHAP Explainer AIPySpark</strong>,{" "}
-              <strong>PyTorch</strong>, <strong>TensorFlow</strong>, and{" "}
-              <strong>SHAP Explainer AI
-              </strong>. I bring expertise in{" "}
-              <strong>statistics</strong>, <strong>mathematics</strong>,{" "}
+              toolset, including <strong>Python</strong>, <strong>TensorFlow</strong>,{" "}
+              <strong>Keras</strong>, <strong>PyTorch</strong>, and more. I bring
+              expertise in <strong>statistics</strong>, <strong>mathematics</strong>,
               <strong>analytics</strong>, <strong>regression</strong>,{" "}
               <strong>classification algorithms</strong>,{" "}
-              <strong>recommendation systems</strong>,{" "}
-              <strong>association rule mining algorithms</strong>,{" "}
-              <strong>cloud computing</strong>, <strong>deep neural networks</strong>
-              , <strong>computer vision</strong>, and{" "}
+              <strong>cloud computing</strong>, <strong>deep neural networks</strong>,
+              <strong>computer vision</strong>, and{" "}
               <strong>natural language processing</strong>.
             </p>
             <p className="text-lg mb-4">
@@ -84,7 +72,7 @@ const AboutMe: React.FC = () => {
 
         {/* Technical Skills Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">Technical Skills</h2>
+          {/* <h2 className="text-2xl font-bold mb-4">Technical Skills</h2> */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
             {skills.map((skill) => (
               <div key={skill.name} className="flex flex-col items-center">
@@ -95,8 +83,100 @@ const AboutMe: React.FC = () => {
                   height={80}
                   className="mb-2"
                 />
+                {/* <span className="text-sm">{skill.name}</span> */}
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Professional Experience Section */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold mb-4">Professional Experience</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Machine Learning & Deep Learning & NLP Solutions</h3>
+              <p className="text-base mb-4">
+                Proficient in developing end-to-end solutions, from data pre-processing and feature engineering to model selection and deployment.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Data Analysis</h3>
+              <p className="text-base mb-4">
+                Skilled in exploring and interpreting large, complex datasets to identify patterns and provide resilient analytic solutions.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Predictive Modeling</h3>
+              <p className="text-base mb-4">
+                Experienced in analyzing data to draw conclusions, predict future outcomes, and convert insights into actionable business strategies.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Technical Proficiency</h3>
+              <p className="text-base mb-4">
+                Expertise in statistics, mathematics, regression and classification algorithms, cloud computing, deep neural networks, and natural language processing.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Tools and Technologies</h3>
+              <p className="text-base mb-4">
+                Hands-on experience with Python, data visualization, exploratory data analysis (EDA), and more.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Model Optimization</h3>
+              <p className="text-base mb-4">
+                Applied threshold calibrations and hyperparameter tuning techniques to enhance algorithm performance and ensure reliable outputs.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Technical Documentation</h3>
+              <p className="text-base mb-4">
+                Developed comprehensive technical architecture and documentation for model building and data pre-processing workflows.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Stakeholder Communication</h3>
+              <p className="text-base mb-4">
+                Evaluated data findings and communicated insights in a clear, structured manner, fostering strong relationships with stakeholders and providing expert guidance.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Project Management</h3>
+              <p className="text-base mb-4">
+                Administered the planning, execution, and delivery of technical projects by setting goals, defining milestones, and ensuring deadlines are met.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Team Leadership</h3>
+              <p className="text-base mb-4">
+                Managed and led technical teams, inspiring and motivating members, encouraging collaboration, and fostering a positive working environment.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Data Interpretation and Analysis</h3>
+              <p className="text-base mb-4">
+                Interpreted and analyzed data to draw conclusions, identify patterns, and convert insights into actionable predictions and models.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Data Intelligence Tools</h3>
+              <p className="text-base mb-4">
+                Utilized key libraries and tools for data analysis, including Tableau, Power BI, Pandas, Seaborn, NLTK, Matplotlib, Spacy, and Scikit-Learn.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Statistical Analysis</h3>
+              <p className="text-base mb-4">
+                Compiled, organized, and performed statistical analysis on business and data sets to evaluate performance and efficiency.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Data Visualization</h3>
+              <p className="text-base mb-4">
+                Presented data visualization models to business teams for assessment and decision-making.
+              </p>
+            </div>
           </div>
         </div>
       </main>

@@ -1,67 +1,79 @@
-"use client"
-import { FC } from 'react';
+"use client";
+import React, { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { blogs } from '../../data/blogs';
-import { Button } from '@/components/ui/button';
-import styles from '../../app/blog/page.module.css'; // Import the CSS module
-import Link from "next/link";
-import { motion } from "framer-motion";
-import Image from "next/image";
 
-const BlogDetails: FC = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const BlogDetails = () => {
+  const blogRef = useRef<HTMLDivElement | null>(null);
+  const selectedIndices = [1, 3, 5, 8, 9, 11, 13]; // Indices of the blogs you want to display
+  const selectedBlogs = selectedIndices.map(index => blogs[index]).filter(blog => blog); // Filter out undefined values
+
+  useGSAP(() => {
+    if (blogRef.current) {
+      const cards = blogRef.current.querySelectorAll('.blog-card');
+
+      cards.forEach(card => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          scale: 0.8,
+          duration: 0.6,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            end: 'bottom 60%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+
+        gsap.to(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            end: 'bottom 60%',
+            scrub: true,
+          },
+          scale: 1.05,
+        });
+      });
+    }
+  }, [blogRef]);
+
   return (
-    <>
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section className="w-full">
-          <h2 className="text-2xl font-bold mb-4">Blog Details</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {blogs.slice(0, 4).map((blog) => (
-              <article key={blog.id} className={`border rounded-lg ${styles.blogCard}`}>
-                <div className="relative">
-                  <Image
-                    src={blog.img} // Assuming 'img' is the field for image URL in your blog data
-                    alt={blog.title}
-                    width={300}
-                    height={200}
-                    className={`w-full h-48 object-cover ${styles.blogImage}`}
-                  />
-                  <div className={styles.blogDetails}>
-                    <h3 className="text-lg font-bold">{blog.title}</h3>
-                    <p className="text-sm">{blog.description}</p>
-                  </div>
+    <div ref={blogRef} className="max-w-7xl mx-auto px-4 py-8">
+      <h2 className="text-3xl font-bold mb-6">Blog Details</h2>
+      <p className="section-description text-gray-600 dark:text-white text-lg mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati architecto sapiente asperiores sequi iste? Aperiam, id? Cum, sit? Unde alias, natus commodi delectus impedit dolorem provident non qui rerum aperiam?</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {selectedBlogs.slice(0, 6).map((blog) => (
+          <div key={blog.slug} className="blog-card bg-white dark:bg-black dark:text-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <div className="relative w-full h-64 overflow-hidden">
+              <Image src={blog.img} alt={blog.title} layout="fill" objectFit="cover" className="transform hover:scale-110 transition-transform duration-300 ease-in-out" />
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{blog.description}</p>
+              <div className="flex items-center">
+                <Image src={blog.authorAvatar} alt={blog.author} width={32} height={32} className="w-8 h-8 rounded-full mr-2" />
+                <div>
+                  <p className="text-sm font-medium">{blog.author}</p>
+                  <p className="text-xs text-gray-500">{blog.date}</p>
                 </div>
-                <div className={styles.blogContent}>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    <span className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs">
-                      {blog.author}
-                    </span>
-                    <span className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs">
-                      {blog.date}
-                    </span>
-                  </div>
-                  <Link href={`/blogs/${blog.id}`}>
-                    <Button className={`mb-4 ${styles.readMore}`}>
-                      Read More
-                    </Button>
-                  </Link>
-                </div>
-              </article>
-            ))}
+              </div>
+              <Link href={`/blog/${blog.slug}`} className="text-blue-500 text-xs font-bold hover:underline mt-4 block">
+                Read More
+              </Link>
+            </div>
           </div>
-          <div className="flex justify-center mt-8">
-            {/* Animated button with hover effect */}
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Button asChild>
-                <Link href="/blogs">
-
-                  See More
-
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-      </main>
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 

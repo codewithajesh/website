@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { projects } from '../../data/project';
 import styles from './page.module.css'; // Import the CSS module
 
@@ -15,13 +16,18 @@ const ProjectPage: FC = () => {
       </Head>
       <main className="container max-w-7xl p-4">
         <header className="text-center mb-8">
-          <h1 className="text-3xl font-bold">My Projects</h1>
+          <div className="bg-gradient-to-r from-red-500 to-black via-pink-500 animate-gradient-x text-white py-24 mb-8 text-center">
+            <h1 className="text-5xl font-bold">My Project Website</h1>
+            <p className="mt-4 text-xl">
+              Welcome to my projects, where I share my latest completion and ongoing project details.
+            </p>
+          </div>
         </header>
         <section className="w-full">
-          <h2 className="text-lg font-semibold mb-4">Projects</h2>
+          {/* <h2 className="text-lg font-semibold mb-4">Projects</h2> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {projects.map((project) => (
-              <article key={project.id} className={`border rounded-lg ${styles.projectCard}`}>
+              <article key={project.slug} className={`border rounded-lg ${styles.projectCard}`}>
                 <div className="relative">
                   <img src={project.img} alt={project.title} className={`w-full h-48 object-cover ${styles.projectImage}`} />
                   <div className={styles.projectDetails}>
@@ -31,15 +37,15 @@ const ProjectPage: FC = () => {
                 </div>
                 <div className={styles.projectContent}>
                   <div className="flex flex-wrap gap-2 mb-2">
-                    {project.tools.map((tool, index) => (
+                    {project.tools && project.tools.map((tool, index) => (
                       <span key={index} className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs">
                         {tool}
                       </span>
                     ))}
                   </div>
-                  <a href={`/projects/${project.id}`} className={`bmb-4 ${styles.readMore}`}>
+                  <Link href={`/projects/${project.slug}`} className={`mb-4 bg-gradient-to-r from-red-500 to-black via-pink-500 ${styles.readMore}`}>
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

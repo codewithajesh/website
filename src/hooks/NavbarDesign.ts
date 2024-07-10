@@ -1,4 +1,3 @@
-// hooks/useGsap.ts
 import { useEffect, RefObject } from 'react';
 import { gsap } from 'gsap';
 
@@ -7,11 +6,17 @@ type Animation = {
   to: gsap.TweenVars;
 };
 
-const useGsap = (refs: RefObject<HTMLElement>[], animations: Animation[]) => {
+const useGsap = (
+  refs: RefObject<HTMLElement>[],
+  animations: Animation[]
+) => {
   useEffect(() => {
     refs.forEach((ref, index) => {
       if (ref.current) {
-        gsap.fromTo(ref.current, animations[index].from, animations[index].to);
+        const animation = animations[index];
+        if (animation) {
+          gsap.fromTo(ref.current, animation.from, animation.to);
+        }
       }
     });
   }, [refs, animations]);

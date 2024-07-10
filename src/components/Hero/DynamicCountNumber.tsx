@@ -45,7 +45,7 @@ const DynamicCountNumber = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-8 rounded-lg text-white">
+    <section className="bg-gradient-to-r from-red-500 to-black via-pink-500 p-8 rounded-lg text-white">
       {/* Dynamic Information Section */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <motion.div
